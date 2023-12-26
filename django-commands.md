@@ -31,6 +31,8 @@ ptyhona manage.py makemigrations
 python manage.py migrate
 ```
 
+- Migrationlar işlendikten sonra tekrar superuser create etmemiz gerekebilir.
+
 ## Super User Create
 
 ```command

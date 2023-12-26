@@ -1,11 +1,24 @@
-from watchlist_app.api.serializers import WatchListSerializer
-from watchlist_app.models import WatchList
+from watchlist_app.api.serializers import WatchListSerializer, StreamPlatformSerializer
+from watchlist_app.models import WatchList, StreamPlatform
 from rest_framework.response import Response
 #from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework import status
 
-
+class StreamPlatformAV(APIView):
+    def get(self, request):
+        platform = StreamPlatform.objects.all()
+        serializer = StreamPlatformSerializer(platform, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request):
+        serializer = StreamPlatformSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+         
 
 class WatchListAV(APIView):
 

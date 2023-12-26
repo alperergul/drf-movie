@@ -11,9 +11,7 @@ class StreamPlatformSerializer(serializers.ModelSerializer):
 
 # Model Serializers --------------------------------
 class WatchListSerializer(serializers.ModelSerializer):
-
-    len_name = serializers.SerializerMethodField()
-
+    
     class Meta:
         model = WatchList
         # Hepsini dahil eder.
