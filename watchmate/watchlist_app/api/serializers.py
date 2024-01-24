@@ -24,7 +24,7 @@ class WatchListSerializer(serializers.ModelSerializer):
 
 
 class StreamPlatformSerializer(serializers.HyperlinkedModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="stream_details")
+    # url = serializers.HyperlinkedIdentityField(view_name="stream_details")
 
     watchlist = WatchListSerializer(many=True, read_only=True)
 
